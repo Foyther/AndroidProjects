@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LastFM Info</string>
+    <string name="top_tracks">Top tracks</string>
+    <string name="find">Find</string>
+    <string name="cancel">Cancel</string>
+    <string name="artist_or_band">Artist or band</string>
+    <string name="album">Album</string>
+    <string name="what_you_want">What you want?</string>
+</resources>
