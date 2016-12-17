@@ -69,7 +69,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                             break;
                     }
                 } else {
-                    Log.i(MainActivity.LOG_TAG, "SearchActivity: onClick Find: error");
+                    DebugUtils.i(this, "error");
                     Snackbar.make(mainView, R.string.field_is_empty, Snackbar.LENGTH_LONG).show();
                 }
                 break;

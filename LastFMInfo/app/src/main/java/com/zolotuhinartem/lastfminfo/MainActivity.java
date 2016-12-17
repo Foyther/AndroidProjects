@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnFind;
 
-    public static final String LOG_TAG = "dbg";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
