@@ -15,7 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FindActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchedAlbumsActivity" />
+        <activity android:name=".SearchedArtistsOrBandsActivity" />
+        <activity android:name=".TopTracksActivity"></activity>
     </application>
 
 </manifest>

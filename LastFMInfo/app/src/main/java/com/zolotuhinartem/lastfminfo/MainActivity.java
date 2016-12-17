@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnFind;
 
+    public static final String LOG_TAG = "dbg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_activity_main_find:
-                Intent intent = new Intent(this, FindActivity.class);
+                Intent intent = new Intent(this, SearchActivity.class);
                 startActivity(intent);
         }
     }

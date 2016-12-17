@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_find"
+    android:id="@+id/activity_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zolotuhinartem.lastfminfo.FindActivity">
+    tools:context="com.zolotuhinartem.lastfminfo.SearchActivity">
 
     <include
         android:id="@+id/tb_activity_find"
@@ -21,9 +21,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_activity_find"/>
+            android:id="@+id/et_activity_search"/>
         <TextView
-            android:layout_below="@id/et_activity_find"
+            android:layout_below="@id/et_activity_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -32,10 +32,11 @@
         <RadioGroup
             android:layout_below="@id/tv_activity_find_what_you_want"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/rg_activity_search">
 
             <RadioButton
-                android:id="@+id/rb_activity_find_artist_or_band"
+                android:id="@+id/rb_activity_search_artist_or_band"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/artist_or_band" />
@@ -58,14 +59,14 @@
                 android:layout_weight="1"
                 android:text="@string/cancel"
                 style="@style/ButtonStyle"
-                android:id="@+id/btn_activity_find_cancel"/>
+                android:id="@+id/btn_activity_search_cancel"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/find"
+                android:text="@string/search"
                 style="@style/ButtonStyle"
-                android:id="@+id/btn_activity_find_find"/>
+                android:id="@+id/btn_activity_search_search"/>
         </LinearLayout>
 
 

@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_activity_main_top_tracks"
             android:layout_centerHorizontal="true"
-            android:text="@string/find" />
+            android:text="@string/search" />
 
     </RelativeLayout>
 
