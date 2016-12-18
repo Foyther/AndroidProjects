@@ -10,7 +10,7 @@ import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists_;
-import com.zolotuhinartem.lastfminfo.recycler_view.TopArtistsAdapter;
+import com.zolotuhinartem.lastfminfo.recyclerviewelements.TopArtistsAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
