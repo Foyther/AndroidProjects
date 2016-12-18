@@ -50,7 +50,7 @@
                 android:id="@+id/rb_activity_search_top_artist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/top_artists" />
+                android:text="@string/top_artists_in_country" />
         </RadioGroup>
 
         <LinearLayout

@@ -40,10 +40,12 @@ public class AlbumItemViewHolder extends RecyclerView.ViewHolder {
 
 
             if (image != null) {
-                Glide.with(itemView.getContext())
-                        .load(image.getUrl())
-                        .fitCenter()
-                        .into(ivAlbumCoverHolder);
+                if (image.getUrl() != null) {
+                    Glide.with(itemView.getContext())
+                            .load(image.getUrl())
+                            .fitCenter()
+                            .into(ivAlbumCoverHolder);
+                }
             }
 
             if (listener != null) {
