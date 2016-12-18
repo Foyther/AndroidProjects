@@ -46,6 +46,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/album" />
+            <RadioButton
+                android:id="@+id/rb_activity_search_top_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/top_artists" />
         </RadioGroup>
 
         <LinearLayout

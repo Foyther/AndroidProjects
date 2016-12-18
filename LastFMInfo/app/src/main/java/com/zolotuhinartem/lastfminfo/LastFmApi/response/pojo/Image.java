@@ -13,7 +13,6 @@ public class Image {
     @Expose
     private String url;
 
-
     @SerializedName("size")
     @Expose
     private String size;

@@ -5,6 +5,7 @@
     <string name="cancel">Cancel</string>
     <string name="artist_or_band">Artist or band</string>
     <string name="album">Album</string>
+    <string name="top_artists">Top Artists</string>
     <string name="what_you_want">What you want?</string>
     <string name="field_is_empty">Field is empty!</string>
     <string name="choose_thing_which_you_want_search">Choose thing which you want search!</string>

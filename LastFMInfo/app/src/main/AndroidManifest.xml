@@ -21,6 +21,7 @@
         <activity android:name=".SearchedAlbumsActivity" />
         <activity android:name=".SearchedArtistsOrBandsActivity" />
         <activity android:name=".TopTracksActivity"></activity>
+        <activity android:name=".TopArtistActivity"></activity>
     </application>
 
 </manifest>
