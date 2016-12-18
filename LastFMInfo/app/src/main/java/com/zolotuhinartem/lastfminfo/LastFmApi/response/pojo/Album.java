@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Album {
 
+
     @SerializedName("name")
     @Expose
     private String name;
@@ -93,5 +94,33 @@ public class Album {
 
     public void setMbid(String mbid) {
         this.mbid = mbid;
+    }
+
+
+    public Image getSmallImage(){
+        return getImageSize("small");
+    }
+
+    public Image getMediumImage(){
+        return getImageSize("medium");
+    }
+
+    public Image getLargeImage(){
+        return getImageSize("large");
+    }
+
+    public Image getExtralargeImage(){
+        return getImageSize("extralarge");
+    }
+
+
+
+    private Image getImageSize(String string){
+        for (Image i: this.image) {
+            if (i.getSize().equals(string)) {
+                return i;
+            }
+        }
+        return null;
     }
 }

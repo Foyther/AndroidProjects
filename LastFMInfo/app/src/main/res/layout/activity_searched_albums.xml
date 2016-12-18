@@ -11,7 +11,8 @@
     tools:context="com.zolotuhinartem.lastfminfo.SearchedAlbumsActivity">
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_activity_searched_albums">
         
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
