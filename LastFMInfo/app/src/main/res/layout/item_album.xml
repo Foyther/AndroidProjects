@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_item_album_album_short_info"
+            android:id="@+id/tv_item_album_short_info"
             android:text="Metallica - Kill 'em All"/>
     </LinearLayout>
 

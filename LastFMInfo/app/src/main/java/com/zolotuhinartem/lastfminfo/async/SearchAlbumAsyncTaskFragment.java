@@ -7,8 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
+import com.zolotuhinartem.lastfminfo.LastFmApi.LastFmApi;
+import com.zolotuhinartem.lastfminfo.LastFmApi.LastFmApiCaller;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchAlbumResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Albums;
 
@@ -71,7 +71,7 @@ public class SearchAlbumAsyncTaskFragment extends Fragment {
     }
 
     public interface SearchAlbumCallback {
-        void onSearch(SearchAlbumResponse searchAlbumResponse);
+        void onSearchAlbumCallback(SearchAlbumResponse searchAlbumResponse);
     }
 
     public class SearchAlbumAsyncTask extends AsyncTask<String, Void, SearchAlbumResponse> {
@@ -109,7 +109,7 @@ public class SearchAlbumAsyncTaskFragment extends Fragment {
         protected void onPostExecute(SearchAlbumResponse searchAlbumResponse) {
             searchAlbumAsyncTask = null;
             if(searchAlbumCallback != null) {
-                searchAlbumCallback.onSearch(searchAlbumResponse);
+                searchAlbumCallback.onSearchAlbumCallback(searchAlbumResponse);
             }
         }
     }

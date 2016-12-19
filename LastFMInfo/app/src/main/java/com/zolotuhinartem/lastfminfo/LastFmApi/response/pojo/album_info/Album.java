@@ -10,7 +10,7 @@ import java.util.List;
  * Created by zolotuhinartem on 19.12.16.
  */
 
-public class Album {
+public class Album implements Comparable<Album>{
 
     @SerializedName("name")
     @Expose
@@ -42,11 +42,11 @@ public class Album {
 
     @SerializedName("tracks")
     @Expose
-    private List<Track> tracks;
+    private Tracks tracks;
 
     @SerializedName("tags")
     @Expose
-    private List<Tag> tags;
+    private Tags tags;
 
     @SerializedName("wiki")
     @Expose
@@ -54,7 +54,7 @@ public class Album {
 
     public Album(){}
 
-    public Album(String name, String artist, String mbid, String url, List<Image> images, Long listeners, Long playcount, List<Track> tracks, List<Tag> tags, Wiki wiki) {
+    public Album(String name, String artist, String mbid, String url, List<Image> images, Long listeners, Long playcount, Tracks tracks, Tags tags, Wiki wiki) {
         this.name = name;
         this.artist = artist;
         this.mbid = mbid;
@@ -123,19 +123,19 @@ public class Album {
         this.playcount = playcount;
     }
 
-    public List<Track> getTracks() {
+    public Tracks getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(Tracks tracks) {
         this.tracks = tracks;
     }
 
-    public List<Tag> getTags() {
+    public Tags getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(Tags tags) {
         this.tags = tags;
     }
 
@@ -146,4 +146,50 @@ public class Album {
     public void setWiki(Wiki wiki) {
         this.wiki = wiki;
     }
+
+    @Override
+    public int compareTo(Album album) {
+        if (album.getMbid().length() <= 0) {
+            return  -1;
+        } else {
+            if (this.getMbid().length() <= 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    public Image getSmallImage(){
+        return getImageSize("small");
+    }
+
+    public Image getMediumImage(){
+        return getImageSize("medium");
+    }
+
+    public Image getLargeImage(){
+        return getImageSize("large");
+    }
+
+    public Image getExtralargeImage(){
+        return getImageSize("extralarge");
+    }
+
+    public Image getMegaImage(){
+        return getImageSize("mega");
+    }
+
+
+
+    private Image getImageSize(String string){
+        for (Image i: this.getImages()) {
+            if (i.getSize().equals(string)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+
 }

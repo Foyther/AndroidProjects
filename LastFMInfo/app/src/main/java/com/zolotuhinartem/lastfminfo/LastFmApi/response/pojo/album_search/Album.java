@@ -11,7 +11,7 @@ import java.util.List;
  * Created by zolotuhinartem on 17.12.16.
  */
 
-public class Album {
+public class Album implements Comparable<Album>{
 
 
     @SerializedName("name")
@@ -123,5 +123,19 @@ public class Album {
             }
         }
         return null;
+    }
+
+
+    @Override
+    public int compareTo(Album album) {
+        if (album.getMbid().length() <= 0) {
+            return  -1;
+        } else {
+            if (this.getMbid().length() <= 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
     }
 }

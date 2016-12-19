@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo.LastFmApi.response;
+package com.zolotuhinartem.lastfminfo.LastFmApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -1,5 +1,6 @@
 package com.zolotuhinartem.lastfminfo.activities.searched_albums;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,12 +10,14 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchAlbumResponse;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
+import com.zolotuhinartem.lastfminfo.activities.album_info.AlbumInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.SearchAlbumAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.AlbumItemAdapter;
 
-public class SearchedAlbumsActivity extends AppCompatActivity implements SearchAlbumAsyncTaskFragment.SearchAlbumCallback {
+public class SearchedAlbumsActivity extends AppCompatActivity implements SearchAlbumAsyncTaskFragment.SearchAlbumCallback, AlbumItemAdapter.OnAlbumItemClickListener {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
@@ -33,6 +36,7 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_searched_albums);
 
         albumItemAdapter = new AlbumItemAdapter();
+        albumItemAdapter.setListener(this);
         recyclerView.setAdapter(albumItemAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, COLUMNS, GridLayoutManager.VERTICAL, false));
 
@@ -84,7 +88,7 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
     }
 
     @Override
-    public void onSearch(SearchAlbumResponse searchAlbumResponse) {
+    public void onSearchAlbumCallback(SearchAlbumResponse searchAlbumResponse) {
         if (searchAlbumResponse.getCode() < 400){
             if (searchAlbumResponse.getAlbums() != null){
                 albumItemAdapter.setList(searchAlbumResponse.getAlbums().getResults().getAlbumMatches().getAlbum());
@@ -105,5 +109,21 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
 
     public void showToast(String text){
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+    }
+    public void showToast(int id){
+        Toast.makeText(this, id, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onAlbumItemClick(Album album) {
+        if (album != null) {
+            if (album.getMbid().length() > 0) {
+                Intent intent = new Intent(this, AlbumInfoActivity.class);
+                intent.putExtra(AlbumInfoActivity.ALBUM_ID, album.getMbid());
+                startActivity(intent);
+            } else {
+                showToast(R.string.this_does_not_have_a_web_page_please_try_select_another);
+            }
+        }
     }
 }

@@ -10,15 +10,17 @@ import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_info.Album;
 
 public class AlbumInfoResponse {
 
-    @SerializedName("album")
-    @Expose
     private Album album;
+
+    private int code;
 
     public AlbumInfoResponse(){}
 
-    public AlbumInfoResponse(Album album) {
+    public AlbumInfoResponse(Album album, int code) {
         this.album = album;
+        this.code = code;
     }
+
 
     public Album getAlbum() {
         return album;
@@ -26,5 +28,13 @@ public class AlbumInfoResponse {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 }

@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
+import com.zolotuhinartem.lastfminfo.LastFmApi.LastFmApi;
+import com.zolotuhinartem.lastfminfo.LastFmApi.LastFmApiCaller;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.TopArtists;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.TopArtists_;
 import com.zolotuhinartem.lastfminfo.R;

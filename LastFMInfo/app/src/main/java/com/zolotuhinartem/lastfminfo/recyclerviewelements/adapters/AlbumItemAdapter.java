@@ -9,6 +9,8 @@ import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.viewholders.AlbumItemViewHolder;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,6 +49,8 @@ public class AlbumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public void setList(List<Album> list) {
         this.list = list;
+        Collections.sort(this.list);
+
         notifyDataSetChanged();
     }
 
@@ -61,4 +65,20 @@ public class AlbumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public interface OnAlbumItemClickListener{
         void onAlbumItemClick(Album album);
     }
+
+//    private List<Album> getWithoutEmptyMbid(List<Album> list){
+//
+//        ArrayList<Album> tempList = new ArrayList<>(list.size());
+//        for(Album i: list) {
+//            if (i != null) {
+//                if (i.getMbid() != null) {
+//                    if (i.getMbid().length() > 0) {
+//                        tempList.add(i);
+//                    }
+//                }
+//            }
+//        }
+//        return tempList;
+//
+//    }
 }
