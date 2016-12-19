@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.utils;
 
 import android.util.Log;
 

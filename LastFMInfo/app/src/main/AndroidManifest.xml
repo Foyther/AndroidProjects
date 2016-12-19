@@ -10,18 +10,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".SearchedAlbumsActivity" />
-        <activity android:name=".SearchedArtistsOrBandsActivity" />
-        <activity android:name=".TopTracksActivity"></activity>
-        <activity android:name=".TopArtistActivity"></activity>
+        <activity android:name=".activities.SearchActivity" />
+        <activity android:name=".activities.searched_albums.SearchedAlbumsActivity" />
+        <activity android:name=".activities.SearchedArtistsOrBandsActivity" />
+        <activity android:name=".activities.TopTracksActivity"></activity>
+        <activity android:name=".activities.TopArtistActivity"></activity>
     </application>
 
 </manifest>

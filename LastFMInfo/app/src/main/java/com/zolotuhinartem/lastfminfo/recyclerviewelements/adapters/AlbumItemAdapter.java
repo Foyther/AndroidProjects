@@ -50,6 +50,10 @@ public class AlbumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         notifyDataSetChanged();
     }
 
+    public List<Album> getList() {
+        return list;
+    }
+
     public void setListener(OnAlbumItemClickListener listener) {
         this.listener = listener;
     }

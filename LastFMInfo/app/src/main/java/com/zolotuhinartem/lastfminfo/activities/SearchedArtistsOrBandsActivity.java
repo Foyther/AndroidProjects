@@ -1,7 +1,10 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.zolotuhinartem.lastfminfo.R;
+
 public class SearchedArtistsOrBandsActivity extends AppCompatActivity {
 
     @Override

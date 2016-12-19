@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo.recyclerviewelements;
+package com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +36,7 @@ public class TopArtistsAdapter extends RecyclerView.Adapter<TopArtistsAdapter.Re
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_for_searched_top_artists, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_searched_top_artists, parent, false);
         return new RecyclerViewHolder(view);
     }
 

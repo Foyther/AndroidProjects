@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.utils;
 
 /**
  * Created by zolotuhinartem on 16.12.16.

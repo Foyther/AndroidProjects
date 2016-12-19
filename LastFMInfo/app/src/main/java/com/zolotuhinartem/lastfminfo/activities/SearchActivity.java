@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
+import com.zolotuhinartem.lastfminfo.R;
+import com.zolotuhinartem.lastfminfo.utils.StringManager;
+import com.zolotuhinartem.lastfminfo.activities.searched_albums.SearchedAlbumsActivity;
 
 public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 

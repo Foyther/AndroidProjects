@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,8 @@ import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists_;
-import com.zolotuhinartem.lastfminfo.recyclerviewelements.TopArtistsAdapter;
+import com.zolotuhinartem.lastfminfo.R;
+import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.TopArtistsAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

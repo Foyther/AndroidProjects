@@ -1,7 +1,9 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.zolotuhinartem.lastfminfo.R;
 
 public class TopTracksActivity extends AppCompatActivity {
 

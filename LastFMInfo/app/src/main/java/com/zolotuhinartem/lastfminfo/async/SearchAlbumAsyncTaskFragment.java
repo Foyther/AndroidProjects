@@ -3,13 +3,10 @@ package com.zolotuhinartem.lastfminfo.async;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Loader;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.zolotuhinartem.lastfminfo.Constants;
-import com.zolotuhinartem.lastfminfo.DebugUtils;
+import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchAlbumResponse;

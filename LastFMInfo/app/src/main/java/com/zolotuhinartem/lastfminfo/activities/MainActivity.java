@@ -1,10 +1,13 @@
-package com.zolotuhinartem.lastfminfo;
+package com.zolotuhinartem.lastfminfo.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.zolotuhinartem.lastfminfo.R;
+import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
