@@ -10,7 +10,7 @@ import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchAlbumResponse;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Albums;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Albums;
 
 import java.io.IOException;
 

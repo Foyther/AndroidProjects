@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo;
+package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist;
 
 /**
  * Created by Dr on 18-Dec-16.
@@ -6,6 +6,7 @@ package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Attr;
 
 import java.util.List;
 

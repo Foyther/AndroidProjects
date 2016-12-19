@@ -1,22 +1,21 @@
-package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo;
+package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Dr on 18-Dec-16.
+ * Created by zolotuhinartem on 17.12.16.
  */
 
-public class Artists {
+public class Albums {
 
     @SerializedName("results")
     @Expose
     private Results results;
 
-    public Artists() {
-    }
+    public Albums(){}
 
-    public Artists(Results results) {
+    public Albums(Results results) {
         this.results = results;
     }
 
@@ -27,6 +26,4 @@ public class Artists {
     public void setResults(Results results) {
         this.results = results;
     }
-
-
 }

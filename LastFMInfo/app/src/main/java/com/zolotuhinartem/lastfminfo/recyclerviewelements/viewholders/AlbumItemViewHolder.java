@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Album;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Image;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.AlbumItemAdapter;

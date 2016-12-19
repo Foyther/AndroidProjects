@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo;
+package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist;
 
 /**
  * Created by Dr on 18-Dec-16.

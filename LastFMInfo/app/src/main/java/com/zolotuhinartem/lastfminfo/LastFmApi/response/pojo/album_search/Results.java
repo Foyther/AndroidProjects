@@ -1,4 +1,4 @@
-package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo;
+package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

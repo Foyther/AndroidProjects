@@ -1,21 +1,23 @@
-package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo;
+package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Results;
 
 /**
- * Created by zolotuhinartem on 17.12.16.
+ * Created by Dr on 18-Dec-16.
  */
 
-public class Albums {
+public class Artists {
 
     @SerializedName("results")
     @Expose
     private Results results;
 
-    public Albums(){}
+    public Artists() {
+    }
 
-    public Albums(Results results) {
+    public Artists(Results results) {
         this.results = results;
     }
 
@@ -26,4 +28,6 @@ public class Albums {
     public void setResults(Results results) {
         this.results = results;
     }
+
+
 }

@@ -1,8 +1,8 @@
 package com.zolotuhinartem.lastfminfo.LastFmApi.response;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Albums;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Artist;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists_;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Albums;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.Artist;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.TopArtists_;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

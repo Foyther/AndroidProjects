@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Album;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.viewholders.AlbumItemViewHolder;
 

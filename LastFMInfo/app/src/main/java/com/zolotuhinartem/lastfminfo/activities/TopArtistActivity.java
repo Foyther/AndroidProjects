@@ -8,8 +8,8 @@ import android.util.Log;
 
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApi;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.LastFmApiCaller;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.TopArtists_;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.TopArtists;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.TopArtists_;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.TopArtistsAdapter;
 

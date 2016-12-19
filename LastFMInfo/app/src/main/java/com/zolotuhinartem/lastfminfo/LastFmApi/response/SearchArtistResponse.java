@@ -1,7 +1,7 @@
 package com.zolotuhinartem.lastfminfo.LastFmApi.response;
 
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Artists;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist.Artists;
 
 /**
  * Created by Dr on 18-Dec-16.

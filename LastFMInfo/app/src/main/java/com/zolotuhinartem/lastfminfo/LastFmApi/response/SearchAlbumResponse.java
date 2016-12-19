@@ -1,6 +1,6 @@
 package com.zolotuhinartem.lastfminfo.LastFmApi.response;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Albums;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Albums;
 
 /**
  * Created by zolotuhinartem on 17.12.16.

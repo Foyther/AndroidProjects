@@ -3,7 +3,7 @@ package com.zolotuhinartem.lastfminfo.activities.searched_albums;
 import android.app.Fragment;
 import android.os.Bundle;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Album;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 
 import java.util.List;
 
