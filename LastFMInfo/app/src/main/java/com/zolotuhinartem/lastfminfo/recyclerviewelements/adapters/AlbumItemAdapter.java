@@ -9,7 +9,6 @@ import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.viewholders.AlbumItemViewHolder;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

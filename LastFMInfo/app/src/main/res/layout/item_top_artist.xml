@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zolotuhinartem.lastfminfo.activities.searched_top_artists.SearchedTopArtistsActivity">
+
+    <TextView
+        android:id="@+id/topartistname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artist Name"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/topartistphoto"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/topartistname" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/view"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp">
+    </View>
+
+
+</RelativeLayout>

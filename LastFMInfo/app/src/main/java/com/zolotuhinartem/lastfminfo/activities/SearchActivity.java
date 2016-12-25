@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.zolotuhinartem.lastfminfo.activities.searched_artists.SearchedArtistsActivity;
+import com.zolotuhinartem.lastfminfo.activities.searched_top_artists.SearchedTopArtistsActivity;
 import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.utils.StringManager;
@@ -20,8 +22,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     public static final int SELECTED_RADIO_NONE = -1;
     public static final int SELECTED_RADIO_ALBUM = 1;
-    public static final int SELECTED_RADIO_ARTIST_OR_BAND = 2;
-    public static final int SELECTED_RADIO_TOP_ARTIST = 3;
+    public static final int SELECTED_RADIO_ARTIST = 2;
+    public static final int SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY = 3;
     public static final String NAME_FOR_SEARCH = "name_for_find";
 
     private Button btnCancel, btnSearch;
@@ -70,11 +72,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                         case SELECTED_RADIO_ALBUM:
                             startActivitySearch(SearchedAlbumsActivity.class, nameForSearch);
                             break;
-                        case SELECTED_RADIO_ARTIST_OR_BAND:
-                            startActivitySearch(SearchedArtistsOrBandsActivity.class, nameForSearch);
+                        case SELECTED_RADIO_ARTIST:
+                            startActivitySearch(SearchedArtistsActivity.class, nameForSearch);
                             break;
-                        case SELECTED_RADIO_TOP_ARTIST:
-                            startActivitySearch(TopArtistActivity.class, nameForSearch);
+                        case SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY:
+                            startActivitySearch(SearchedTopArtistsActivity.class, nameForSearch);
                     }
                 } else {
                     DebugUtils.i(this, "error");
@@ -97,9 +99,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             case (R.id.rb_activity_find_album):
                 return SELECTED_RADIO_ALBUM;
             case (R.id.rb_activity_search_artist_or_band):
-                return SELECTED_RADIO_ARTIST_OR_BAND;
+                return SELECTED_RADIO_ARTIST;
             case (R.id.rb_activity_search_top_artist):
-                return SELECTED_RADIO_TOP_ARTIST;
+                return SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY;
             default:
                 return SELECTED_RADIO_NONE;
         }

@@ -1,3 +1,4 @@
+/*
 package com.zolotuhinartem.lastfminfo.activities;
 
 import android.os.Bundle;
@@ -22,14 +23,16 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+*/
 /**
  * Created by Dr on 18-Dec-16.
- */
+ *//*
+
 
 public class TopArtistActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private TopArtistsAdapter adapter;
-    private ArrayList<TopArtists> data;
+    private ArrayList<TopArtistsMatches> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +56,12 @@ public class TopArtistActivity extends AppCompatActivity{
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         LastFmApiCaller caller = retrofit.create(LastFmApiCaller.class);
-        Call<TopArtists_> call = caller.searchTopArtists(countryName, LastFmApi.API_KEY);
+        Call<TopArtists_> call = caller.searchArtists(countryName, LastFmApi.API_KEY);
         call.enqueue(new Callback<TopArtists_>() {
             @Override
             public void onResponse(Call<TopArtists_> call, Response<TopArtists_> response) {
                 TopArtists_ artists = response.body();
-                data = new ArrayList<TopArtists>(Arrays.asList(artists.getTopartists()));
+                data = new ArrayList<TopArtistsMatches>(Arrays.asList(artists.getTopartists()));
                 adapter = new TopArtistsAdapter(data);
                 recyclerView.setAdapter(adapter);
             }
@@ -71,3 +74,4 @@ public class TopArtistActivity extends AppCompatActivity{
         });
     }
 }
+*/
