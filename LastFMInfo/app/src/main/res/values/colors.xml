@@ -7,4 +7,5 @@
     <color name="colorText">#FFF</color>
     <color name="colorAccentText">#B90000</color>
     <color name="colorButton">#131313</color>
+    <color name="imageViewBackground">#202020</color>
 </resources>

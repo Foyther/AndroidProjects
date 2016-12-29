@@ -22,15 +22,19 @@ public class ArtistItemViewHolder extends RecyclerView.ViewHolder {
 
     public ArtistItemViewHolder(View itemView) {
         super(itemView);
-        name = (TextView) itemView.findViewById(R.id.artistName);
-        imageView = (ImageView) itemView.findViewById(R.id.artistPhoto);
+        this.name = (TextView) itemView.findViewById(R.id.tv_item_top_artist_topartistname);
+        this.imageView = (ImageView) itemView.findViewById(R.id.iv_item_artist_topartistphoto);
     }
+
+
 
     public void bind(@NonNull final Artist artist, @NonNull final ArtistItemAdapter.OnArtistItemClickListener listener) {
 
         name.setText(artist.getName());
 
-        Image image = (Image) artist.getImage();
+        Image image = artist.getLargeImage();
+
+
 
         if (image != null) {
             if (image.getUrl() != null) {
