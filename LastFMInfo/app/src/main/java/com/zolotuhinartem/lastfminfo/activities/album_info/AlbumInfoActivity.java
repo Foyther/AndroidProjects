@@ -1,5 +1,6 @@
 package com.zolotuhinartem.lastfminfo.activities.album_info;
 
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +24,7 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
     public static final String ALBUM_ID = "album_id";
     private RecyclerView rvTrackList;
     private ProgressBar progressBar;
-    private ScrollView scrollView;
+    private NestedScrollView nestedScrollView;
     private TextView tvContent;
     private TextView tvArtistName;
     private TextView tvAlbumName;
@@ -42,7 +43,7 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         tvArtistName = (TextView)findViewById(R.id.tv_activity_album_info_artist_name);
 
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_album_info);
-        scrollView = (ScrollView) findViewById(R.id.scr_activity_album_info);
+        nestedScrollView = (NestedScrollView) findViewById(R.id.nsv_activity_album_info);
 
         ivCover = (ImageView) findViewById(R.id.iv_activity_album_info_cover);
 
@@ -139,10 +140,10 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
 
     public void setProgress(boolean isLoading) {
         if (isLoading) {
-            scrollView.setVisibility(View.GONE);
+            nestedScrollView.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
         } else {
-            scrollView.setVisibility(View.VISIBLE);
+            nestedScrollView.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
         }
     }
