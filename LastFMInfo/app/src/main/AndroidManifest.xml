@@ -20,10 +20,11 @@
         <activity android:name=".activities.SearchActivity" />
         <activity android:name=".activities.searched_albums.SearchedAlbumsActivity" />
         <activity android:name=".activities.searched_artists.SearchedArtistsActivity" />
-        <activity android:name=".activities.TopTracksActivity" />
+        <activity android:name=".activities.top_tracks.TopTracksActivity" />
         <activity android:name=".activities.artist_info.ArtistInfoActivity" />
-        <activity android:name=".activities.album_info.AlbumInfoActivity"></activity>
-        <activity android:name=".activities.searched_top_artists.SearchedTopArtistsActivity"></activity>
+        <activity android:name=".activities.album_info.AlbumInfoActivity" />
+        <activity android:name=".activities.searched_top_artists.SearchedTopArtistsActivity" />
+        <activity android:name=".activities.track_info.TrackInfoActivity"></activity>
     </application>
 
 </manifest>
