@@ -48,7 +48,9 @@ public class AlbumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public void setList(List<Album> list) {
         this.list = list;
-        Collections.sort(this.list);
+        if (this.list != null) {
+            Collections.sort(this.list);
+        }
 
         notifyDataSetChanged();
     }

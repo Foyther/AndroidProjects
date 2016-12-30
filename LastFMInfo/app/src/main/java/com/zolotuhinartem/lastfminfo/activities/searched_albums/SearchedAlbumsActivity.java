@@ -1,11 +1,14 @@
 package com.zolotuhinartem.lastfminfo.activities.searched_albums;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -16,11 +19,15 @@ import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
 import com.zolotuhinartem.lastfminfo.activities.album_info.AlbumInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.SearchAlbumAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.AlbumItemAdapter;
+import com.zolotuhinartem.lastfminfo.utils.StringManager;
 
 public class SearchedAlbumsActivity extends AppCompatActivity implements SearchAlbumAsyncTaskFragment.SearchAlbumCallback, AlbumItemAdapter.OnAlbumItemClickListener {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
+    private Button btnSearch;
+    private EditText etSearch;
+    private View vRoot;
     private SearchAlbumAsyncTaskFragment searchAlbumAsyncTaskFragment;
 
     private AlbumItemAdapter albumItemAdapter;
@@ -34,6 +41,10 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_activity_searched_albums);
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_searched_albums);
+        etSearch = (EditText) findViewById(R.id.et_search_toolbar);
+        btnSearch = (Button) findViewById(R.id.btn_search_toolbar);
+        vRoot = (View) findViewById(R.id.rl_activity_searched_albums);
+
 
         albumItemAdapter = new AlbumItemAdapter();
         albumItemAdapter.setListener(this);
@@ -42,21 +53,35 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
 
         searchAlbumAsyncTaskFragment = getSearchAlbumTaskFragment();
 
+        setProgress(searchAlbumAsyncTaskFragment.isWorking());
 
         if (savedInstanceState == null) {
-            searchAlbumAsyncTaskFragment.execute(getIntent().getStringExtra(SearchActivity.NAME_FOR_SEARCH));
+            String searchName = getIntent().getStringExtra(SearchActivity.NAME_FOR_SEARCH);
+            etSearch.setText(searchName);
+            search(searchName);
         } else {
             SearchedAlbumsHolderFragment searchedAlbumsHolderFragment = getSeatchetAlbumsHolderFragment();
             albumItemAdapter.setList(searchedAlbumsHolderFragment.getAlbums());
         }
 
-
-        setProgress(searchAlbumAsyncTaskFragment.isWorking());
-
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchName = StringManager.deleteSpacesInStartAndEnd(etSearch.getText().toString());
+                if (searchName.length() > 0) {
+                    search(searchName);
+                }
+            }
+        });
 
     }
 
-    private SearchAlbumAsyncTaskFragment getSearchAlbumTaskFragment(){
+    private void search(String searchName) {
+        searchAlbumAsyncTaskFragment.execute(searchName);
+        setProgress(searchAlbumAsyncTaskFragment.isWorking());
+    }
+
+    private SearchAlbumAsyncTaskFragment getSearchAlbumTaskFragment() {
         SearchAlbumAsyncTaskFragment fragment = (SearchAlbumAsyncTaskFragment) getFragmentManager().findFragmentByTag(SearchAlbumAsyncTaskFragment.class.getName());
 
         if (fragment == null) {
@@ -67,7 +92,7 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
         return fragment;
     }
 
-    private SearchedAlbumsHolderFragment getSeatchetAlbumsHolderFragment(){
+    private SearchedAlbumsHolderFragment getSeatchetAlbumsHolderFragment() {
         SearchedAlbumsHolderFragment fragment = (SearchedAlbumsHolderFragment) getFragmentManager().findFragmentByTag(SearchedAlbumsHolderFragment.class.getName());
         if (fragment == null) {
             fragment = new SearchedAlbumsHolderFragment();
@@ -89,15 +114,31 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
 
     @Override
     public void onSearchAlbumCallback(SearchAlbumResponse searchAlbumResponse) {
-        if (searchAlbumResponse.getCode() < 400){
-            if (searchAlbumResponse.getAlbums() != null){
-                albumItemAdapter.setList(searchAlbumResponse.getAlbums().getResults().getAlbumMatches().getAlbum());
-            }
-        } else {
+        boolean isError;
+        isError = false;
 
+        if (searchAlbumResponse.getCode() >= 400) {
+            isError = true;
+        } else {
+            if (searchAlbumResponse.getAlbums() == null) {
+                isError = true;
+            }
+        }
+        if (!isError) {
+            albumItemAdapter.setList(searchAlbumResponse.getAlbums().getResults().getAlbumMatches().getAlbum());
+        } else {
+            showError(R.string.search_error);
         }
         setProgress(false);
 
+    }
+
+    public void showError(String text){
+        showSnack(text);
+    }
+
+    public void showError(int id){
+        showSnack(id);
     }
 
     @Override
@@ -107,10 +148,19 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
 
     }
 
-    public void showToast(String text){
+    public  void showSnack(String text) {
+        Snackbar.make(vRoot, text, Snackbar.LENGTH_LONG).show();
+    }
+
+    public  void showSnack(int id) {
+        Snackbar.make(vRoot, id, Snackbar.LENGTH_LONG).show();
+    }
+
+    public void showToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
-    public void showToast(int id){
+
+    public void showToast(int id) {
         Toast.makeText(this, id, Toast.LENGTH_LONG).show();
     }
 

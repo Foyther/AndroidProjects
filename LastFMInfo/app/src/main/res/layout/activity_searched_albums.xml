@@ -10,12 +10,13 @@
 
     <include
         android:id="@+id/tb_activity_main"
-        layout="@layout/main_toolbar" />
+        layout="@layout/search_toolbar" />
 
     <RelativeLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/rl_activity_searched_albums"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
 

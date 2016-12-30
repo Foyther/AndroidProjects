@@ -60,10 +60,12 @@ public class SearchAlbumAsyncTaskFragment extends Fragment {
     }
 
     public void execute(String albumName) {
-        if (searchAlbumAsyncTask == null) {
-            searchAlbumAsyncTask = new SearchAlbumAsyncTask();
-            searchAlbumAsyncTask.execute(albumName);
+        if (searchAlbumAsyncTask != null) {
+            searchAlbumAsyncTask.cancel(false);
         }
+
+        searchAlbumAsyncTask = new SearchAlbumAsyncTask();
+        searchAlbumAsyncTask.execute(albumName);
     }
 
     public boolean isWorking(){

@@ -22,7 +22,7 @@
             app:contentScrim="@color/colorPrimary"
             app:expandedTitleMarginEnd="96dp"
             app:expandedTitleMarginStart="64dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|snap">
 
             <ImageView
                 android:id="@+id/iv_activity_album_info_cover"
