@@ -41,9 +41,9 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_activity_searched_albums);
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_searched_albums);
-        etSearch = (EditText) findViewById(R.id.et_search_toolbar);
-        btnSearch = (Button) findViewById(R.id.btn_search_toolbar);
-        vRoot = (View) findViewById(R.id.rl_activity_searched_albums);
+        etSearch = (EditText) findViewById(R.id.et_activity_searched_albums);
+        btnSearch = (Button) findViewById(R.id.btn_activity_searched_albums_search);
+        vRoot = (View) findViewById(R.id.activity_searched_albums);
 
 
         albumItemAdapter = new AlbumItemAdapter();
