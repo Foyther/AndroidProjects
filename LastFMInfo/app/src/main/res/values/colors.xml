@@ -8,4 +8,6 @@
     <color name="colorAccentText">#B90000</color>
     <color name="colorButton">#131313</color>
     <color name="imageViewBackground">#202020</color>
+    <color name="first_track_view">#797878</color>
+    <color name="second_track_view">#ffffff</color>
 </resources>

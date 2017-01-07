@@ -1,5 +1,6 @@
 package com.zolotuhinartem.lastfminfo.LastFmApi;
 
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.TopTrackResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_info.AlbumContainer;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Albums;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artists;
@@ -27,6 +28,8 @@ public interface LastFmApiCaller {
     @GET("2.0/?method=artist.getinfo&format=json")
     Call<com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_info.Artists> getArtistInfo(@Query("artist") String artistName, @Query("api_key") String apiKey);
 
+    @GET("2.0/?method=chart.gettoptracks&format=json")
+    Call<TopTrackResponse> getTopTracks(@Query("api_key") String apiKey);
 
     @GET("2.0/?method=album.getinfo&format=json")
     Call<AlbumContainer> getAlbumInfo(@Query("mbid") String mbid, @Query("api_key") String apiKey);
