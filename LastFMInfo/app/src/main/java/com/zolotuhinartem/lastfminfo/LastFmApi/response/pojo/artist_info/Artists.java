@@ -10,6 +10,13 @@ public class Artists {
     @Expose
     private Artist artist;
 
+    public Artists() {
+    }
+
+    public Artists(Artist artist) {
+        this.artist = artist;
+    }
+
     public Artist getArtist() {
         return artist;
     }

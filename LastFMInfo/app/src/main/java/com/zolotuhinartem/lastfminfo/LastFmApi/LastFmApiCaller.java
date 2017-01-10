@@ -18,14 +18,14 @@ public interface LastFmApiCaller {
     @GET("2.0/?method=album.search&format=json")
     Call<Albums> searchAlbum(@Query("album") String album, @Query("api_key") String apiKey);
 
-    @GET("2.0/?method=geo.getTopArtists&format=json")
-    Call<Artists> searchTopArtists(@Query("country") String artist, @Query("api_key") String apiKey);
+    @GET("2.0/?method=geo.gettopartists&format=json")
+    Call<Artists> searchTopArtists(@Query("country") String country, @Query("api_key") String apiKey);
 
     @GET("2.0/?method=artist.search&format=json")
     Call<Artists> searchArtist(@Query("artist") String artist, @Query("api_key") String apiKey);
 
     @GET("2.0/?method=artist.getinfo&format=json")
-    Call<com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_info.Artists> getArtistInfo(@Query("artist") String artistName, @Query("api_key") String apiKey);
+    Call<com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_info.Artists> getArtistInfo(@Query("mbid") String mbid, @Query("api_key") String apiKey);
 
 
     @GET("2.0/?method=album.getinfo&format=json")

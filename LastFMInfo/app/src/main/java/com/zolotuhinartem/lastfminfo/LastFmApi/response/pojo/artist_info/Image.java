@@ -8,17 +8,17 @@ public class Image {
 
     @SerializedName("#text")
     @Expose
-    private String text;
+    private String url;
     @SerializedName("size")
     @Expose
     private String size;
 
-    public String getText() {
-        return text;
+    public String getUrl() {
+        return url;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getSize() {

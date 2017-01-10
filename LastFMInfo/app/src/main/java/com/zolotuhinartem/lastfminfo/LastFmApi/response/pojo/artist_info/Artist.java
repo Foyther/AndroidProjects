@@ -19,7 +19,7 @@ public class Artist {
     private String url;
     @SerializedName("image")
     @Expose
-    private List<Image> image = null;
+    private List<Image> images = null;
     @SerializedName("streamable")
     @Expose
     private String streamable;
@@ -63,12 +63,12 @@ public class Artist {
         this.url = url;
     }
 
-    public List<Image> getImage() {
-        return image;
+    public List<Image> getImages() {
+        return images;
     }
 
-    public void setImage(List<Image> image) {
-        this.image = image;
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
     public String getStreamable() {
@@ -117,6 +117,37 @@ public class Artist {
 
     public void setBio(Bio bio) {
         this.bio = bio;
+    }
+
+    public Image getSmallImage(){
+        return getImageSize("small");
+    }
+
+    public Image getMediumImage(){
+        return getImageSize("medium");
+    }
+
+    public Image getLargeImage(){
+        return getImageSize("large");
+    }
+
+    public Image getExtralargeImage(){
+        return getImageSize("extralarge");
+    }
+
+    public Image getMegaImage(){
+        return getImageSize("mega");
+    }
+
+
+
+    private Image getImageSize(String string){
+        for (Image i: this.getImages()) {
+            if (i.getSize().equals(string)) {
+                return i;
+            }
+        }
+        return null;
     }
 
 }

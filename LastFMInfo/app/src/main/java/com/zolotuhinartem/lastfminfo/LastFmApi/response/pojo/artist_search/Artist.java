@@ -29,7 +29,7 @@ public class Artist implements Comparable<Artist> {
     private String streamable;
     @SerializedName("image")
     @Expose
-    private List<Image> image =  null;
+    private List<Image> images =  null;
 
     public String getName() {
         return name;
@@ -96,16 +96,16 @@ public class Artist implements Comparable<Artist> {
         return this;
     }
 
-    public List<Image> getImage() {
-        return image;
+    public List<Image> getImages() {
+        return images;
     }
 
-    public void setImage(List<Image> image) {
-        this.image = image;
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
-    public Artist withImage(List<Image> image) {
-        this.image = image;
+    public Artist withImage(List<Image> images) {
+        this.images = images;
         return this;
     }
 
@@ -128,7 +128,7 @@ public class Artist implements Comparable<Artist> {
 
 
     private Image getImageSize(String string){
-        for (Image i: this.image) {
+        for (Image i: this.images) {
             if (i.getSize().equals(string)) {
                 return i;
             }

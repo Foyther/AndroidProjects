@@ -8,8 +8,8 @@ import android.os.Bundle;
 
 import com.zolotuhinartem.lastfminfo.LastFmApi.LastFmApi;
 import com.zolotuhinartem.lastfminfo.LastFmApi.LastFmApiCaller;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchArtistResponse;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artists;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchTopArtistResponse;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist_fromCountry.Topartists;
 import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
 
 import java.io.IOException;
@@ -71,15 +71,15 @@ public class SearchTopArtistAsyncTaskFragment extends Fragment {
     }
 
     public interface SearchTopArtistCallback {
-        void onSearchTopArtistCallback(SearchArtistResponse searchArtistResponse);
+        void onSearchTopArtistCallback(SearchTopArtistResponse searchTopArtistResponse);
     }
 
-    public class SearchTopArtistAsyncTask extends AsyncTask<String, Void, SearchArtistResponse> {
+    public class SearchTopArtistAsyncTask extends AsyncTask<String, Void, SearchTopArtistResponse> {
 
         @Override
-        protected SearchArtistResponse doInBackground(String... strings) {
+        protected SearchTopArtistResponse doInBackground(String... strings) {
             int code = 404;
-            Artists artists = null;
+            Topartists topartists = null;
             if (strings != null) {
                 if (strings[0] != null) {
                     LastFmApiCaller caller = LastFmApi.getLastFmApiCaller();
@@ -91,7 +91,7 @@ public class SearchTopArtistAsyncTaskFragment extends Fragment {
                         DebugUtils.i(this, "start response");
                         Response response = call.execute();
                         code = response.code();
-                        artists = (Artists) response.body();
+                        topartists = (Topartists) response.body();
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -101,14 +101,14 @@ public class SearchTopArtistAsyncTaskFragment extends Fragment {
                 }
             }
             DebugUtils.i(this, "end. Code = " + code);
-            return new SearchArtistResponse(artists, code);
+            return new SearchTopArtistResponse(code, topartists);
         }
 
         @Override
-        protected void onPostExecute(SearchArtistResponse searchArtistResponse) {
+        protected void onPostExecute(SearchTopArtistResponse searchTopArtistResponse) {
             searchTopArtistAsyncTask = null;
             if (searchTopArtistCallback != null) {
-                searchTopArtistCallback.onSearchTopArtistCallback(searchArtistResponse);
+                searchTopArtistCallback.onSearchTopArtistCallback(searchTopArtistResponse);
             }
         }
     }
