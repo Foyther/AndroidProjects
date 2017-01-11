@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_tracks.Tracks;
 
-public class TopTrackResponse {
+public class TopTracksResponse {
 
     @SerializedName("tracks")
     @Expose

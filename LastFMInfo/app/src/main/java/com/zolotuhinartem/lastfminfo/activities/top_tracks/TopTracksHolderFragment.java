@@ -7,27 +7,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_tracks.Track;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_tracks.Tracks;
 import com.zolotuhinartem.lastfminfo.R;
+
+import java.util.List;
 
 /**
  * Created by Nurislam on 02.01.2017.
  */
 
 public class TopTracksHolderFragment extends Fragment {
+    private List<Track> tracks;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_top_tracks, container, false);
+    public List<Track> getTracks() {
+        return tracks;
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
     }
 }

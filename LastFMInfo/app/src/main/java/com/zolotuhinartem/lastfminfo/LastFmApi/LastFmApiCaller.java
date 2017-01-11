@@ -1,6 +1,7 @@
 package com.zolotuhinartem.lastfminfo.LastFmApi;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.TopTrackResponse;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.TopTracksResponse;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.TrackInfoResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_info.AlbumContainer;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Albums;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artists;
@@ -29,10 +30,14 @@ public interface LastFmApiCaller {
     Call<com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_info.Artists> getArtistInfo(@Query("artist") String artistName, @Query("api_key") String apiKey);
 
     @GET("2.0/?method=chart.gettoptracks&format=json")
-    Call<TopTrackResponse> getTopTracks(@Query("api_key") String apiKey);
+    Call<TopTracksResponse> getTopTracks(@Query("api_key") String apiKey);
 
     @GET("2.0/?method=album.getinfo&format=json")
     Call<AlbumContainer> getAlbumInfo(@Query("mbid") String mbid, @Query("api_key") String apiKey);
+
+    @GET("2.0/?method=track.getinfo&format=json")
+    Call<TrackInfoResponse> getTrackInfo(@Query("artist") String artist, @Query("track") String track, @Query("api_key") String apiKey);
+
 
     @GET("2.0/?method=album.getinfo&format=json")
     Call<AlbumContainer> getAlbumInfo(@Query("artist") String artistName, @Query("album") String albumName, @Query("api_key") String apiKey);

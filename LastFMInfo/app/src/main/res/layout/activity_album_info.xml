@@ -10,31 +10,31 @@
     tools:context="com.zolotuhinartem.lastfminfo.activities.album_info.AlbumInfoActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@color/colorBackground"
-        android:fitsSystemWindows="true">
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:contentScrim="@color/colorPrimary"
+        app:expandedTitleMarginEnd="96dp"
+        app:expandedTitleMarginStart="64dp"
+        app:layout_scrollFlags="scroll|snap">
+
+        <ImageView
+            android:id="@+id/iv_activity_album_info_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="@color/colorPrimary"
-            app:expandedTitleMarginEnd="96dp"
-            app:expandedTitleMarginStart="64dp"
-            app:layout_scrollFlags="scroll|snap">
+            android:scaleType="centerCrop"
+            app:layout_collapseMode="parallax"
+            android:fitsSystemWindows="true"/>
 
-            <ImageView
-                android:id="@+id/iv_activity_album_info_cover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
-                android:fitsSystemWindows="true"/>
+    </android.support.design.widget.CollapsingToolbarLayout>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-    </android.support.design.widget.AppBarLayout>
+</android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

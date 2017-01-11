@@ -4,7 +4,7 @@ package com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_tracks;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Image;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_tracks.Image;
 
 public class Track {
 
