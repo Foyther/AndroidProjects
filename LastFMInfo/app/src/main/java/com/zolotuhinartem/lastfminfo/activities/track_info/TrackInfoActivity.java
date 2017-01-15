@@ -24,6 +24,9 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
     private NestedScrollView nestedScrollView;
     private TextView tvArtistName;
     private TextView tvTrackName;
+    private TextView tvTrackListenners;
+    private TextView tvTrackAlbumName;
+    private TextView tvTrackContent;
     private ImageView ivCover;
     private Track track;
 
@@ -36,6 +39,9 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
 
         tvTrackName = (TextView) findViewById(R.id.tv_activity_track_info_track_name);
         tvArtistName = (TextView) findViewById(R.id.tv_activity_track_info_artist_name);
+        tvTrackListenners = (TextView) findViewById(R.id.tv_activity_track_info_listenners);
+        tvTrackAlbumName = (TextView) findViewById(R.id.tv_activity_track_info_track_album_name);
+        tvTrackContent = (TextView) findViewById(R.id.tv_activity_track_info_content);
 
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_track_info);
         nestedScrollView = (NestedScrollView) findViewById(R.id.nsv_activity_track_info);
@@ -70,6 +76,7 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
     private void updateViews(Track track) {
         String artistName = track.getArtist().getName();
         String trackName = track.getName();
+        String trackListeners = track.getListeners();
 
 
         if (artistName != null) {
@@ -80,14 +87,28 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
             tvTrackName.setText(trackName);
         }
 
-        if(track.getAlbum() != null){
+        if (trackListeners != null) {
+            tvTrackListenners.setText(trackListeners);
+        }
+
+        if (track.getAlbum() != null && track.getAlbum().getTitle() != null) {
+            String trackAlbumName = track.getAlbum().getTitle();
+            tvTrackAlbumName.setText(trackAlbumName);
+        } else tvTrackAlbumName.setText("Don't have album");
+
+        if (track.getWiki() != null && track.getWiki().getSummary() != null) {
+            String trackContent = track.getWiki().getSummary();
+            tvTrackContent.setText(trackContent);
+        }
+
+
+        if (track.getAlbum() != null) {
             List<Image> image = track.getAlbum().getImage();
 
             if (image != null) {
                 Glide.with(this).load(image.get(image.size() - 1).getText()).fitCenter().into(ivCover);
             }
-        }
-        else {
+        } else {
             ivCover.setImageResource(R.drawable.lastfm_icon);
         }
 
@@ -134,12 +155,14 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
 
     @Override
     public void onTrackInfoCallback(TrackInfoResponse trackInfoResponse) {
-        setProgress(false);
-        Track track = trackInfoResponse.getTrack();
-        if (track != null) {
-            this.track = track;
-            save();
-            updateViews(track);
-        }
+        if (trackInfoResponse != null) {
+            setProgress(false);
+            Track track = trackInfoResponse.getTrack();
+            if (track != null) {
+                this.track = track;
+                save();
+                updateViews(track);
+            }
+        } else this.finish();
     }
 }

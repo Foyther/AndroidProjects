@@ -1,11 +1,13 @@
 package com.zolotuhinartem.lastfminfo.activities.top_tracks;
 
 import android.app.FragmentManager;
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.TopTracksResponse;
@@ -31,17 +33,16 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
         rvTopTracks = (RecyclerView) findViewById(R.id.rv_tracks);
         rvTopTracks.setLayoutManager(new LinearLayoutManager(rvTopTracks.getContext()));
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             getTopTracksAsyncTaskFragment().execute();
-        }
-        else {
+        } else {
             load();
         }
 
 
     }
 
-    public void load(){
+    public void load() {
         TopTracksHolderFragment fragment = getTopTracksHolderFragment();
         this.tracks = fragment.getTracks();
         adapter.setTopTracks(tracks.getTrack());
@@ -51,9 +52,12 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
 
     @Override
     public void onTopTracksCallback(TopTracksResponse topTracksResponse) {
-        tracks = topTracksResponse.getTracks();
-        adapter.setTopTracks(tracks.getTrack());
-        rvTopTracks.setAdapter(adapter);
+        if (topTracksResponse != null) {
+            tracks = topTracksResponse.getTracks();
+            adapter.setTopTracks(tracks.getTrack());
+            rvTopTracks.setAdapter(adapter);
+        } else {this.finish();
+        }
     }
 
     public void showToast(String text) {
@@ -63,13 +67,13 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
     @Override
     public void onTrackItemClick(Track track) {
         if (track != null) {
-                Intent intent = new Intent(this, TrackInfoActivity.class);
-                intent.putExtra(TrackInfoActivity.TRACK_NAME, track.getName());
-                intent.putExtra(TrackInfoActivity.ARTIST_NAME, track.getArtist().getName());
-                startActivity(intent);
-            } else {
-                showToast("this_does_not_have_a_web_page_please_try_select_another");
-            }
+            Intent intent = new Intent(this, TrackInfoActivity.class);
+            intent.putExtra(TrackInfoActivity.TRACK_NAME, track.getName());
+            intent.putExtra(TrackInfoActivity.ARTIST_NAME, track.getArtist().getName());
+            startActivity(intent);
+        } else {
+            showToast("this_does_not_have_a_web_page_please_try_select_another");
+        }
     }
 
     @Override
@@ -78,12 +82,12 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
         save();
     }
 
-    public void save(){
+    public void save() {
         TopTracksHolderFragment fragment = getTopTracksHolderFragment();
         fragment.setTracks(this.tracks);
     }
 
-    public TopTracksHolderFragment getTopTracksHolderFragment(){
+    public TopTracksHolderFragment getTopTracksHolderFragment() {
         TopTracksHolderFragment fragment = (TopTracksHolderFragment) getFragmentManager()
                 .findFragmentByTag(TopTracksHolderFragment.class.getName());
 
@@ -94,7 +98,7 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
         return fragment;
     }
 
-    public TopTracksAsyncTaskFragment getTopTracksAsyncTaskFragment(){
+    public TopTracksAsyncTaskFragment getTopTracksAsyncTaskFragment() {
         TopTracksAsyncTaskFragment fragment = (TopTracksAsyncTaskFragment) getFragmentManager()
                 .findFragmentByTag(TopTracksAsyncTaskFragment.class.getName());
 

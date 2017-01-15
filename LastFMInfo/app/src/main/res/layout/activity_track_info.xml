@@ -73,7 +73,32 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_activity_track_info_artist_name"
                     android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/ic_track"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/tv_activity_track_info_listenners"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_activity_track_info_track_name"
+                    android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/ic_listenner"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/tv_activity_track_info_track_album_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_activity_track_info_listenners"
+                    android:layout_centerHorizontal="true"
                     android:drawableLeft="@drawable/ic_album"
+                    android:textSize="26sp" />
+                <TextView
+                    android:id="@+id/tv_activity_track_info_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_activity_track_info_track_album_name"
+                    android:layout_marginTop="20dp"
                     android:textSize="26sp" />
             </RelativeLayout>
         </android.support.v4.widget.NestedScrollView>

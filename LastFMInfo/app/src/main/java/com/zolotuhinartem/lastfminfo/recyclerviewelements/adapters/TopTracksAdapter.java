@@ -84,24 +84,8 @@ public class TopTracksAdapter extends RecyclerView.Adapter<TopTracksHolder> {
     }
 
     @Override
-    public int getItemViewType(int position) {
-        return position % 2;
-    }
-
-    @Override
     public TopTracksHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
-        switch (viewType) {
-            case 0:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.first_track_view, parent, false);
-                break;
-            case 1:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.second_track_view, parent, false);
-                break;
-            default:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.first_track_view, parent, false);
-                break;
-        }
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_list, parent, false);
         return new TopTracksHolder(view);
     }
 
