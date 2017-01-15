@@ -1,5 +1,6 @@
 package com.zolotuhinartem.lastfminfo.activities.searched_artists;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,11 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchArtistResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artist;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
+import com.zolotuhinartem.lastfminfo.activities.artist_info.ArtistInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.SearchArtistAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.ArtistItemAdapter;
 
@@ -100,15 +103,15 @@ public class SearchedArtistsActivity extends AppCompatActivity implements Artist
 
     @Override
     public void onArtistItemClick(Artist artist) {
-       /* if (artist != null) {
+        if (artist != null) {
             if (artist.getMbid().length() > 0) {
                 Intent intent = new Intent(this, ArtistInfoActivity.class);
                 intent.putExtra("artist", artist.getMbid());
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error! Web-page not found!", Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
     }
 
     @Override

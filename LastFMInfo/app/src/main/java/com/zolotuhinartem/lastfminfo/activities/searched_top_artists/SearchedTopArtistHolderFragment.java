@@ -3,7 +3,7 @@ package com.zolotuhinartem.lastfminfo.activities.searched_top_artists;
 import android.app.Fragment;
 import android.os.Bundle;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artist;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist_fromCountry.Artist;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package com.zolotuhinartem.lastfminfo.activities.searched_top_artists;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,26 +7,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchArtistResponse;
-import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artist;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchTopArtistResponse;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.top_artist_fromCountry.Artist;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
-import com.zolotuhinartem.lastfminfo.activities.artist_info.ArtistInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.SearchTopArtistAsyncTaskFragment;
-import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.ArtistItemAdapter;
+import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.TopArtistItemAdapter;
 
 /**
  * Created by Dr on 25-Dec-16.
  */
 
-public class SearchedTopArtistsActivity extends AppCompatActivity implements ArtistItemAdapter.OnArtistItemClickListener, SearchTopArtistAsyncTaskFragment.SearchTopArtistCallback {
+public class SearchedTopArtistsActivity extends AppCompatActivity implements TopArtistItemAdapter.OnTopArtistItemClickListener, SearchTopArtistAsyncTaskFragment.SearchTopArtistCallback {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private SearchTopArtistAsyncTaskFragment fragment;
-    private ArtistItemAdapter adapter;
+    private TopArtistItemAdapter adapter;
     private ImageView imageView;
 
     @Override
@@ -41,7 +38,7 @@ public class SearchedTopArtistsActivity extends AppCompatActivity implements Art
         imageView = (ImageView) findViewById(R.id.icon_lastfm);
 
 
-        adapter = new ArtistItemAdapter();
+        adapter = new TopArtistItemAdapter();
         adapter.setListener(this);
 
         recyclerView.setAdapter(adapter);
@@ -104,18 +101,18 @@ public class SearchedTopArtistsActivity extends AppCompatActivity implements Art
 
 
     @Override
-    public void onSearchTopArtistCallback(SearchArtistResponse searchArtistResponse) {
-        if (searchArtistResponse.getCode() < 400){
-            if (searchArtistResponse.getArtists() != null){
-                adapter.setList(searchArtistResponse.getArtists().getResults().getArtistmatches().getArtists());
+    public void onSearchTopArtistCallback(SearchTopArtistResponse searchTopArtistResponse) {
+        if (searchTopArtistResponse.getCode() < 400){
+            if (searchTopArtistResponse.getTopartists() != null){
+                adapter.setList(searchTopArtistResponse.getTopartists().getArtists());
             }
         }
         setProgressBar(false);
     }
 
     @Override
-    public void onArtistItemClick(Artist artist) {
-        if (artist != null) {
+    public void onTopArtistItemClick(Artist artist) {
+        /*if (artist != null) {
             if (artist.getMbid().length() > 0) {
                 Intent intent = new Intent(this, ArtistInfoActivity.class);
                 intent.putExtra("artist", artist.getMbid());
@@ -123,6 +120,6 @@ public class SearchedTopArtistsActivity extends AppCompatActivity implements Art
             } else {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
     }
 }
