@@ -48,6 +48,9 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
 
         ivCover = (ImageView) findViewById(R.id.iv_activity_track_info_cover);
 
+        TrackInfoAsyncTaskFragment asyncTaskFragment = getTrackInfoAsyncTaskFragment();
+        setProgress(asyncTaskFragment.isWorking());
+
         if (savedInstanceState == null) {
             String trackName = getIntent().getStringExtra(TRACK_NAME);
             String artistName = getIntent().getStringExtra(ARTIST_NAME);
@@ -94,7 +97,7 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
         if (track.getAlbum() != null && track.getAlbum().getTitle() != null) {
             String trackAlbumName = track.getAlbum().getTitle();
             tvTrackAlbumName.setText(trackAlbumName);
-        } else tvTrackAlbumName.setText("Don't have album");
+        } else tvTrackAlbumName.setVisibility(View.GONE);
 
         if (track.getWiki() != null && track.getWiki().getSummary() != null) {
             String trackContent = track.getWiki().getSummary();
