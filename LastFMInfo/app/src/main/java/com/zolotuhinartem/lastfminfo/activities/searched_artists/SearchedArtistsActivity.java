@@ -106,7 +106,7 @@ public class SearchedArtistsActivity extends AppCompatActivity implements Artist
         if (artist != null) {
             if (artist.getMbid().length() > 0) {
                 Intent intent = new Intent(this, ArtistInfoActivity.class);
-                intent.putExtra("artist", artist.getMbid());
+                intent.putExtra(ArtistInfoActivity.ARTIST_ID, artist.getMbid());
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Error! Web-page not found!", Toast.LENGTH_SHORT).show();
