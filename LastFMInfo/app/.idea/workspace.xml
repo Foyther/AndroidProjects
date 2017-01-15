@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3e660f-53cc-4d80-8819-8d1b11daec80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/drawable/followme_lastfm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +43,8 @@
       <file leaf-file-name="ArtistInfoActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zolotuhinartem/lastfminfo/activities/artist_info/ArtistInfoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="107" column="45" selection-start-line="107" selection-start-column="45" selection-end-line="107" selection-end-column="45" />
+            <state relative-caret-position="388">
+              <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,12 +128,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_artist_info.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="activity_artist_info.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="119" column="58" selection-start-line="119" selection-start-column="58" selection-end-line="119" selection-end-column="58" />
-              <folding />
+            <state relative-caret-position="-10">
+              <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+              <folding>
+                <element signature="e#2765#2800#0" expanded="true" />
+                <element signature="e#2838#2873#0" expanded="true" />
+                <element signature="e#2909#2942#0" expanded="true" />
+              </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer2">
@@ -143,21 +145,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="followme_lastfm.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="followme_lastfm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/drawable/followme_lastfm.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="13">
               <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/drawable/content.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -2011,10 +2003,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zolotuhinartem/lastfminfo/LastFmApi/response/pojo/artist_info/Tags.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/item_artist.xml" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/followme_on_lastfm.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zolotuhinartem/lastfminfo/activities/artist_info/ArtistInfoActivity.java" />
         <option value="$PROJECT_DIR$/../.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml" />
         <option value="$PROJECT_DIR$/src/main/res/drawable/followme_lastfm.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zolotuhinartem/lastfminfo/activities/artist_info/ArtistInfoActivity.java" />
       </list>
     </option>
   </component>
@@ -2579,7 +2571,21 @@
       <option name="project" value="LOCAL" />
       <updated>1484520981196</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="link follow">
+      <created>1484521691788</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1484521691788</updated>
+    </task>
+    <task id="LOCAL-00005" summary="link follow+">
+      <created>1484522552366</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1484522552366</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2636,7 +2642,9 @@
     <MESSAGE value="Ohh yeah! I'm living! I like git! Adding scrolling Artist Info" />
     <MESSAGE value="Artist Info links, icons" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="link follow" />
+    <MESSAGE value="link follow+" />
+    <option name="LAST_COMMIT_MESSAGE" value="link follow+" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2729,7 +2737,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="e#2765#2800#0" expanded="true" />
+            <element signature="e#2838#2873#0" expanded="true" />
+            <element signature="e#2909#2942#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3075,16 +3087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zolotuhinartem/lastfminfo/activities/artist_info/ArtistInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="107" column="45" selection-start-line="107" selection-start-column="45" selection-end-line="107" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/content.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -3093,23 +3095,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="119" column="58" selection-start-line="119" selection-start-column="58" selection-end-line="119" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/followme_lastfm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
           <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zolotuhinartem/lastfminfo/activities/artist_info/ArtistInfoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_artist_info.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+          <folding>
+            <element signature="e#2765#2800#0" expanded="true" />
+            <element signature="e#2838#2873#0" expanded="true" />
+            <element signature="e#2909#2942#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
