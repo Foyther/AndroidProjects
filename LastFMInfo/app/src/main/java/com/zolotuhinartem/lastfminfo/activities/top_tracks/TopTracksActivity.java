@@ -43,7 +43,8 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
 
     public void load(){
         TopTracksHolderFragment fragment = getTopTracksHolderFragment();
-        adapter.setTopTracks(fragment.getTracks());
+        this.tracks = fragment.getTracks();
+        adapter.setTopTracks(tracks.getTrack());
 
         rvTopTracks.setAdapter(adapter);
     }
@@ -79,7 +80,7 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
 
     public void save(){
         TopTracksHolderFragment fragment = getTopTracksHolderFragment();
-        fragment.setTracks(this.tracks.getTrack());
+        fragment.setTracks(this.tracks);
     }
 
     public TopTracksHolderFragment getTopTracksHolderFragment(){
