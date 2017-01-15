@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchArtistResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_search.Artist;
 import com.zolotuhinartem.lastfminfo.R;
-import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
 import com.zolotuhinartem.lastfminfo.activities.artist_info.ArtistInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.SearchArtistAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.ArtistItemAdapter;

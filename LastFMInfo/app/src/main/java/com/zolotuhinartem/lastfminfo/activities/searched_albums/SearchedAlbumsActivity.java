@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.SearchAlbumResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_search.Album;
 import com.zolotuhinartem.lastfminfo.R;
-import com.zolotuhinartem.lastfminfo.activities.SearchActivity;
 import com.zolotuhinartem.lastfminfo.activities.album_info.AlbumInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.SearchAlbumAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.AlbumItemAdapter;
