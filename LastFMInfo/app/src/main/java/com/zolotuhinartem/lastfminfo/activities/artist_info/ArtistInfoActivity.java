@@ -1,6 +1,7 @@
 package com.zolotuhinartem.lastfminfo.activities.artist_info;
 
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,7 +27,10 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
     private TextView tvSummary;
     private TextView tvArtistName;
     private ImageView photo;
+    private ImageView icon;
     private Artist artist;
+    private NestedScrollView nestedScrollView;
+   // private LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +40,10 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
         tvSummary = (TextView) findViewById(R.id.tv_activity_artist_info_summary);
         tvArtistName = (TextView) findViewById(R.id.tv_activity_artist_info_name);
 
+        icon = (ImageView) findViewById(R.id.icon_lastfm_info);
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_artist_info);
         photo = (ImageView) findViewById(R.id.iv_activity_artist_info);
+        nestedScrollView = (NestedScrollView) findViewById(R.id.nsv_activity_artist_info);
 
         if (savedInstanceState == null) {
             String mbid = getIntent().getStringExtra(ARTIST_ID);
@@ -66,7 +72,7 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
 
     private void updateViews(Artist artist) {
         String artistName = artist.getName();
-        String listeners = artist.getStats().getListeners();
+        String listeners = artist.getBio().getSummary();
         try {
             artist.getBio().getSummary();
         } catch (NullPointerException ex) {
@@ -81,7 +87,7 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
             tvSummary.setText(listeners);
         }
 
-        Image image =  artist.getLargeImage();
+        Image image =  artist.getExtralargeImage();
 
         if (image != null) {
             Glide.with(this).load(image.getUrl()).fitCenter().into(photo);
@@ -120,11 +126,14 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
 
     public void setProgress(boolean isLoading) {
         if (isLoading) {
+            icon.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
-            photo.setVisibility(View.INVISIBLE);
+            nestedScrollView.setVisibility(View.GONE);
+
         } else {
+            icon.setVisibility(View.GONE);
             progressBar.setVisibility(View.GONE);
-            photo.setVisibility(View.VISIBLE);
+            nestedScrollView.setVisibility(View.VISIBLE);
 
         }
     }
