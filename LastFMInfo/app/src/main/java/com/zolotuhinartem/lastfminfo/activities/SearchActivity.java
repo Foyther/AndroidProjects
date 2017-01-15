@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 //import com.zolotuhinartem.lastfminfo.activities.searched_artists.SearchedArtistsActivity;
+import com.zolotuhinartem.lastfminfo.activities.searched_artists.SearchedArtistsActivity;
 import com.zolotuhinartem.lastfminfo.activities.searched_top_artists.SearchedTopArtistsActivity;
 import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
 import com.zolotuhinartem.lastfminfo.R;
