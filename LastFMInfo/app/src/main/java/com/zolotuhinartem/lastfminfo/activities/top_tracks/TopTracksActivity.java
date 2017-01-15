@@ -24,6 +24,7 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_tracks);
+        this.getTopTracksHolderFragment();
 
         Intent intent = getIntent();
         adapter = new TopTracksAdapter(this);
@@ -34,7 +35,7 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
             getTopTracksAsyncTaskFragment().execute();
         }
         else {
-//            load();
+            load();
         }
 
 

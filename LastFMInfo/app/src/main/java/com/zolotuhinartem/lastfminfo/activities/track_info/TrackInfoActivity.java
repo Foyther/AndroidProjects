@@ -33,6 +33,7 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_info);
 
+
         tvTrackName = (TextView) findViewById(R.id.tv_activity_track_info_track_name);
         tvArtistName = (TextView) findViewById(R.id.tv_activity_track_info_artist_name);
 
