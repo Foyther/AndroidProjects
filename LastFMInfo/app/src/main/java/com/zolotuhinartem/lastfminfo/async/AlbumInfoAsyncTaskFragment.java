@@ -37,7 +37,7 @@ public class AlbumInfoAsyncTaskFragment extends Fragment {
     }
 
     public boolean isWorking(){
-        return albumInfoAsyncTask != null;
+        return this.albumInfoAsyncTask != null;
     }
 
     @Override

@@ -2,7 +2,8 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_item_track_name"
-            android:text="1 - Name"/>
+            android:text="1 - Name"
+            android:textSize="18sp"/>
 
     </RelativeLayout>
 

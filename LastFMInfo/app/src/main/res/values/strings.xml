@@ -11,4 +11,7 @@
     <string name="choose_thing_which_you_want_search">Choose thing which you want search!</string>
     <string name="this_does_not_have_a_web_page_please_try_select_another">This does not have a web page! Please, try select another.</string>
     <string name="search_error">Search error! Please check your internet connection or validate of your query!</string>
+    <string name="listeners">Listeners</string>
+    <string name="playcount">Playcount</string>
 </resources>
+

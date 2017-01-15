@@ -34,6 +34,8 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
     private TextView tvContent;
     private TextView tvArtistName;
     private TextView tvAlbumName;
+    private TextView tvListeners;
+    private TextView tvPlayCount;
     private ImageView ivCover;
     private AlbumInfoTrackItemAdapter trackListAdapter;
 
@@ -45,8 +47,10 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         setContentView(R.layout.activity_album_info);
 
         tvContent = (TextView) findViewById(R.id.tv_activity_album_info_content);
+        tvListeners = (TextView) findViewById(R.id.tv_activity_album_info_listeners);
+        tvPlayCount = (TextView) findViewById(R.id.tv_activity_album_info_playcount);
         tvAlbumName = (TextView) findViewById(R.id.tv_activity_album_info_album_name);
-        tvArtistName = (TextView)findViewById(R.id.tv_activity_album_info_artist_name);
+        tvArtistName = (TextView) findViewById(R.id.tv_activity_album_info_artist_name);
         tvArtistName.setOnClickListener(this);
 
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_album_info);
@@ -60,14 +64,16 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         rvTrackList.setLayoutManager(new LinearLayoutManager(this));
         rvTrackList.setAdapter(trackListAdapter);
 
+        AlbumInfoAsyncTaskFragment albumInfoAsyncTaskFragment = getAlbumInfoAsyncTaskFragment();
+
         if (savedInstanceState == null) {
             String mbid = getIntent().getStringExtra(ALBUM_ID);
-            getAlbumInfoAsyncTaskFragment().execute(mbid);
+            albumInfoAsyncTaskFragment.execute(mbid);
         } else {
             load();
         }
 
-        setProgress(getAlbumInfoAsyncTaskFragment().isWorking());
+        this.setProgress(albumInfoAsyncTaskFragment.isWorking());
     }
 
     @Override
@@ -76,7 +82,7 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         save();
     }
 
-    private void load(){
+    private void load() {
         AlbumInfoHolderFragment albumInfoHolderFragment = getAlbumInfoHolderFragment();
         Album album = albumInfoHolderFragment.getAlbum();
         if (album != null) {
@@ -86,12 +92,13 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
     }
 
     private void updateViews(Album album) {
+
         String artistName = album.getArtist();
         String albumName = album.getName();
 
         String content = null;
         try {
-            album.getWiki().getContent();
+            content = album.getWiki().getContent();
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
@@ -109,6 +116,10 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         }
         trackListAdapter.setList(album.getTracks().getTracks());
 
+
+        tvListeners.setText(Long.toString(album.getListeners()));
+        tvPlayCount.setText(Long.toString(album.getPlaycount()));
+
         Image image = album.getExtralargeImage();
 
         if (image != null) {
@@ -117,12 +128,12 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
 
     }
 
-    private void save(){
+    private void save() {
         AlbumInfoHolderFragment albumInfoHolderFragment = getAlbumInfoHolderFragment();
         albumInfoHolderFragment.setAlbum(this.album);
     }
 
-    private AlbumInfoAsyncTaskFragment getAlbumInfoAsyncTaskFragment(){
+    private AlbumInfoAsyncTaskFragment getAlbumInfoAsyncTaskFragment() {
         AlbumInfoAsyncTaskFragment fragment = (AlbumInfoAsyncTaskFragment) getFragmentManager()
                 .findFragmentByTag(AlbumInfoAsyncTaskFragment.class.getName());
 
@@ -134,7 +145,7 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         return fragment;
     }
 
-    private AlbumInfoHolderFragment getAlbumInfoHolderFragment(){
+    private AlbumInfoHolderFragment getAlbumInfoHolderFragment() {
         AlbumInfoHolderFragment fragment = (AlbumInfoHolderFragment) getFragmentManager()
                 .findFragmentByTag(AlbumInfoHolderFragment.class.getName());
 
@@ -147,13 +158,16 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
     }
 
     public void setProgress(boolean isLoading) {
-        if (isLoading) {
-            nestedScrollView.setVisibility(View.GONE);
-            progressBar.setVisibility(View.VISIBLE);
-        } else {
-            nestedScrollView.setVisibility(View.VISIBLE);
-            progressBar.setVisibility(View.GONE);
-        }
+        int statusForView = isLoading ? View.GONE : View.VISIBLE;
+        int statusForProgressBar = isLoading ? View.VISIBLE : View.GONE;
+        tvPlayCount.setVisibility(statusForView);
+        tvContent.setVisibility(statusForView);
+        tvListeners.setVisibility(statusForView);
+        tvAlbumName.setVisibility(statusForView);
+        tvArtistName.setVisibility(statusForView);
+        nestedScrollView.setVisibility(statusForView);
+        rvTrackList.setVisibility(statusForView);
+        progressBar.setVisibility(statusForProgressBar);
     }
 
     @Override
@@ -171,11 +185,13 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_activity_album_info_artist_name:
-                Intent intent = new Intent(this, SearchedArtistsActivity.class);
-                intent.putExtra(SearchedArtistsActivity.ARTIST_NAME, this.album.getArtist());
-                startActivity(intent);
+        if (album != null) {
+            switch (view.getId()) {
+                case R.id.tv_activity_album_info_artist_name:
+                    Intent intent = new Intent(this, SearchedArtistsActivity.class);
+                    intent.putExtra(SearchedArtistsActivity.ARTIST_NAME, this.album.getArtist());
+                    startActivity(intent);
+            }
         }
     }
 
