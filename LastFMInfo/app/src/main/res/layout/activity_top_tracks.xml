@@ -5,9 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zolotuhinartem.lastfminfo.activities.top_tracks.TopTracksActivity">
+    <include
+        android:id="@+id/tb_activity_main"
+        layout="@layout/main_toolbar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_tracks"
+        android:layout_below="@+id/tb_activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
