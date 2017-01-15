@@ -78,7 +78,7 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
 
     private void updateViews(Artist artist) {
         String artistName = artist.getName();
-        String content = artist.getBio().getSummary();
+        String content = artist.getBio().getContent();
         String listeners = artist.getStats().getListeners();
         String published = artist.getBio().getPublished();
         String link = artist.getBio().getLinks().getLink().getHref();
@@ -105,7 +105,7 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
             tvLink.setText(link);
         }
 
-        Image image =  artist.getExtralargeImage();
+        Image image =  artist.getMegaImage();
 
         if (image != null) {
             Glide.with(this).load(image.getUrl()).fitCenter().into(photo);
