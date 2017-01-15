@@ -78,6 +78,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                             break;
                         case SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY:
                             startActivitySearch(SearchedTopArtistsActivity.class, nameForSearch);
+                            break;
                     }
                 } else {
                     DebugUtils.i(this, "error");

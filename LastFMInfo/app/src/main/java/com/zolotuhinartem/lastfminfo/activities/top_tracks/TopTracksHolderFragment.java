@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class TopTracksHolderFragment extends Fragment {
-    private List<Track> tracks;
+    private Tracks tracks;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,11 @@ public class TopTracksHolderFragment extends Fragment {
         setRetainInstance(true);
     }
 
-    public List<Track> getTracks() {
+    public Tracks getTracks() {
         return tracks;
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setTracks(Tracks tracks) {
         this.tracks = tracks;
     }
 }
