@@ -20,7 +20,7 @@ import com.zolotuhinartem.lastfminfo.async.AlbumInfoAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.AlbumInfoTrackItemAdapter;
 
 public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsyncTaskFragment.AlbumInfoCallback {
-
+    //test
     public static final String ALBUM_ID = "album_id";
     private RecyclerView rvTrackList;
     private ProgressBar progressBar;
