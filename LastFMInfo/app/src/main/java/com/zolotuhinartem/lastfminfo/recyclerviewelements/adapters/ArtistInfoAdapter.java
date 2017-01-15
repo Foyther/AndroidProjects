@@ -1,3 +1,4 @@
+/*
 package com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters;
 
 import android.support.v7.widget.RecyclerView;
@@ -12,9 +13,11 @@ import com.zolotuhinartem.lastfminfo.recyclerviewelements.viewholders.ArtistItem
 
 import java.util.List;
 
+*/
 /**
  * Created by Dr on 29-Dec-16.
- */
+ *//*
+
 
 public class ArtistInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Image> list;
@@ -57,3 +60,4 @@ public class ArtistInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return list != null ? list.size() : null;
     }
 }
+*/
