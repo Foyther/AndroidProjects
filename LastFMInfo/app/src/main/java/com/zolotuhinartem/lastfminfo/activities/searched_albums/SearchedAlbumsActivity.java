@@ -23,6 +23,8 @@ import com.zolotuhinartem.lastfminfo.utils.StringManager;
 
 public class SearchedAlbumsActivity extends AppCompatActivity implements SearchAlbumAsyncTaskFragment.SearchAlbumCallback, AlbumItemAdapter.OnAlbumItemClickListener {
 
+    public final static String ALBUM_NAME = "album_name";
+
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private Button btnSearch;
@@ -56,7 +58,7 @@ public class SearchedAlbumsActivity extends AppCompatActivity implements SearchA
         setProgress(searchAlbumAsyncTaskFragment.isWorking());
 
         if (savedInstanceState == null) {
-            String searchName = getIntent().getStringExtra(SearchActivity.NAME_FOR_SEARCH);
+            String searchName = getIntent().getStringExtra(ALBUM_NAME);
             etSearch.setText(searchName);
             search(searchName);
         } else {

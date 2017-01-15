@@ -1,5 +1,6 @@
 package com.zolotuhinartem.lastfminfo.recyclerviewelements.viewholders;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -30,8 +31,13 @@ public class ArtistItemViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(@NonNull final Artist artist, @NonNull final ArtistItemAdapter.OnArtistItemClickListener listener) {
 
+        clear();
+
         name.setText(artist.getName());
 
+        if (artist.getMbid().length() <= 0) {
+            this.setTextColor(R.color.colorAccentText);
+        }
         Image image = artist.getLargeImage();
 
 
@@ -51,6 +57,20 @@ public class ArtistItemViewHolder extends RecyclerView.ViewHolder {
                 listener.onArtistItemClick(artist);
             }
         });
+
+    }
+
+    public void clear(){
+        this.imageView.setImageResource(0);
+        this.setTextColor(R.color.colorText);
+    }
+
+    public void setTextColor(int id){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            name.setTextColor(itemView.getContext().getColor(id));
+        } else {
+            name.setTextColor(itemView.getContext().getResources().getColor(id));
+        }
 
     }
 
