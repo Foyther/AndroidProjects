@@ -91,7 +91,6 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
             fragment = new TopTracksHolderFragment();
             getFragmentManager().beginTransaction().add(fragment, TopTracksHolderFragment.class.getName()).commit();
         }
-
         return fragment;
     }
 
