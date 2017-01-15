@@ -4,7 +4,7 @@
     android:id="@+id/main_toolbar_appbar"
 
     android:layout_width="match_parent"
-    android:layout_height="96dp"
+    android:layout_height="102dp"
     android:fitsSystemWindows="true"
     >
 
@@ -30,13 +30,13 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:paddingTop="16dp"
+                android:paddingTop="24dp"
                 android:layout_height="wrap_content">
 
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/lastfm_icon" />
+                    android:background="@drawable/lastfm" />
 
                 <TextView
                     android:id="@+id/textView"

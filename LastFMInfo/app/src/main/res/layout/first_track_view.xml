@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:orientation="vertical"
-    android:background="@color/first_track_view">
+    android:background="@color/colorItemBackground">
 
     <TextView
         android:id="@+id/track_name"
@@ -13,6 +13,6 @@
         android:text="Artist and position"
         android:textSize="20dp"
         android:lines="1"
-        android:textColor="@color/second_track_view"/>
+        android:textColor="@color/colorText"/>
 
 </LinearLayout>
