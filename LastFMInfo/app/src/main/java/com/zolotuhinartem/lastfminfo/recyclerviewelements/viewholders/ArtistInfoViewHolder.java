@@ -1,3 +1,4 @@
+/*
 package com.zolotuhinartem.lastfminfo.recyclerviewelements.viewholders;
 
 import android.support.annotation.NonNull;
@@ -10,9 +11,11 @@ import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.artist_info.Image;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.ArtistInfoAdapter;
 
+*/
 /**
  * Created by Dr on 29-Dec-16.
- */
+ *//*
+
 
 public class ArtistInfoViewHolder extends RecyclerView.ViewHolder {
 
@@ -41,3 +44,4 @@ public class ArtistInfoViewHolder extends RecyclerView.ViewHolder {
 
     }
 }
+*/
