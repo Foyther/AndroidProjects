@@ -24,8 +24,11 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
 
     public static final String ARTIST_ID = "artist_id";
     private ProgressBar progressBar;
-    private TextView tvSummary;
+    private TextView tvContent;
     private TextView tvArtistName;
+    private TextView tvListeners;
+    private TextView tvPublished;
+    private TextView tvLink;
     private ImageView photo;
     private ImageView icon;
     private Artist artist;
@@ -37,8 +40,11 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artist_info);
 
-        tvSummary = (TextView) findViewById(R.id.tv_activity_artist_info_summary);
+        tvContent = (TextView) findViewById(R.id.tv_activity_artist_info_content);
+        tvListeners = (TextView) findViewById(R.id.tv_activity_artist_info_listeners);
+        tvPublished = (TextView) findViewById(R.id.tv_activity_artist_info_published);
         tvArtistName = (TextView) findViewById(R.id.tv_activity_artist_info_name);
+        tvLink = (TextView) findViewById(R.id.tv_activity_artist_info_link);
 
         icon = (ImageView) findViewById(R.id.icon_lastfm_info);
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_artist_info);
@@ -72,7 +78,10 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
 
     private void updateViews(Artist artist) {
         String artistName = artist.getName();
-        String listeners = artist.getBio().getSummary();
+        String content = artist.getBio().getSummary();
+        String listeners = artist.getStats().getListeners();
+        String published = artist.getBio().getPublished();
+        String link = artist.getBio().getLinks().getLink().getHref();
         try {
             artist.getBio().getSummary();
         } catch (NullPointerException ex) {
@@ -83,8 +92,17 @@ public class ArtistInfoActivity extends AppCompatActivity  implements ArtistInfo
             tvArtistName.setText(artistName);
         }
 
+        if (content != null) {
+            tvContent.setText(content);
+        }
         if (listeners != null) {
-            tvSummary.setText(listeners);
+            tvListeners.setText(listeners);
+        }
+        if (published != null) {
+            tvPublished.setText(published);
+        }
+        if (link != null) {
+            tvLink.setText(link);
         }
 
         Image image =  artist.getExtralargeImage();

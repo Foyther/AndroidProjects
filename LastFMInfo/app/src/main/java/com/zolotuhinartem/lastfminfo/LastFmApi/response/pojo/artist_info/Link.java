@@ -8,7 +8,7 @@ public class Link {
 
     @SerializedName("#text")
     @Expose
-    private String text;
+    private String link;
     @SerializedName("rel")
     @Expose
     private String rel;
@@ -16,12 +16,12 @@ public class Link {
     @Expose
     private String href;
 
-    public String getText() {
-        return text;
+    public String getLink() {
+        return link;
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.link = link;
     }
 
     public String getRel() {
