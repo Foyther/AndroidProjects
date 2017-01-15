@@ -72,9 +72,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                         case SELECTED_RADIO_ALBUM:
                             startActivitySearch(SearchedAlbumsActivity.class, nameForSearch);
                             break;
-//                        case SELECTED_RADIO_ARTIST:
-//                            startActivitySearch(SearchedArtistsActivity.class, nameForSearch);
-//                            break;
+                        case SELECTED_RADIO_ARTIST:
+                            startActivitySearch(SearchedArtistsActivity.class, nameForSearch);
+                            break;
                         case SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY:
                             startActivitySearch(SearchedTopArtistsActivity.class, nameForSearch);
                     }
