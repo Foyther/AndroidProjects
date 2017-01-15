@@ -1,5 +1,6 @@
 package com.zolotuhinartem.lastfminfo.activities.album_info;
 
+import android.content.Intent;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,11 +16,16 @@ import com.bumptech.glide.Glide;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.AlbumInfoResponse;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.Image;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_info.Album;
+import com.zolotuhinartem.lastfminfo.LastFmApi.response.pojo.album_info.Track;
 import com.zolotuhinartem.lastfminfo.R;
+import com.zolotuhinartem.lastfminfo.activities.artist_info.ArtistInfoActivity;
+import com.zolotuhinartem.lastfminfo.activities.searched_albums.SearchedAlbumsActivity;
+import com.zolotuhinartem.lastfminfo.activities.searched_artists.SearchedArtistsActivity;
+import com.zolotuhinartem.lastfminfo.activities.track_info.TrackInfoActivity;
 import com.zolotuhinartem.lastfminfo.async.AlbumInfoAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.AlbumInfoTrackItemAdapter;
 
-public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsyncTaskFragment.AlbumInfoCallback {
+public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsyncTaskFragment.AlbumInfoCallback, View.OnClickListener, AlbumInfoTrackItemAdapter.AlbumInfoTrackItemOnClickListener {
     //test
     public static final String ALBUM_ID = "album_id";
     private RecyclerView rvTrackList;
@@ -41,6 +47,7 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
         tvContent = (TextView) findViewById(R.id.tv_activity_album_info_content);
         tvAlbumName = (TextView) findViewById(R.id.tv_activity_album_info_album_name);
         tvArtistName = (TextView)findViewById(R.id.tv_activity_album_info_artist_name);
+        tvArtistName.setOnClickListener(this);
 
         progressBar = (ProgressBar) findViewById(R.id.pb_activity_album_info);
         nestedScrollView = (NestedScrollView) findViewById(R.id.nsv_activity_album_info);
@@ -49,6 +56,7 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
 
         rvTrackList = (RecyclerView) findViewById(R.id.rv_activity_album_info_track_list);
         trackListAdapter = new AlbumInfoTrackItemAdapter();
+        trackListAdapter.setListener(this);
         rvTrackList.setLayoutManager(new LinearLayoutManager(this));
         rvTrackList.setAdapter(trackListAdapter);
 
@@ -159,5 +167,23 @@ public class AlbumInfoActivity extends AppCompatActivity implements AlbumInfoAsy
                 updateViews(album);
             }
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_activity_album_info_artist_name:
+                Intent intent = new Intent(this, SearchedArtistsActivity.class);
+                intent.putExtra(SearchedArtistsActivity.ARTIST_NAME, this.album.getArtist());
+                startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onAlbumInfoTrackItemClick(Track track) {
+        Intent intent = new Intent(this, TrackInfoActivity.class);
+        intent.putExtra(TrackInfoActivity.ARTIST_NAME, track.getArtist().getName());
+        intent.putExtra(TrackInfoActivity.TRACK_NAME, track.getName());
+        startActivity(intent);
     }
 }

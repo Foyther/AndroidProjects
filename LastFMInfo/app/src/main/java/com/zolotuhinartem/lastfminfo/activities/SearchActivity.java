@@ -10,9 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-//import com.zolotuhinartem.lastfminfo.activities.searched_artists.SearchedArtistsActivity;
 import com.zolotuhinartem.lastfminfo.activities.searched_artists.SearchedArtistsActivity;
-import com.zolotuhinartem.lastfminfo.activities.searched_top_artists.SearchedTopArtistsActivity;
 import com.zolotuhinartem.lastfminfo.utils.DebugUtils;
 import com.zolotuhinartem.lastfminfo.R;
 import com.zolotuhinartem.lastfminfo.utils.StringManager;
@@ -24,13 +22,10 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     public static final int SELECTED_RADIO_NONE = -1;
     public static final int SELECTED_RADIO_ALBUM = 1;
     public static final int SELECTED_RADIO_ARTIST = 2;
-    public static final int SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY = 3;
-    public static final String NAME_FOR_SEARCH = "name_for_find";
 
     private Button btnCancel, btnSearch;
     private EditText etTarget;
     private View mainView;
-    private RadioButton rbAlbum, rbArtistOrBand, rbTopArtists;
     private RadioGroup radioGroup;
 
 
@@ -41,9 +36,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
         btnCancel = (Button) findViewById(R.id.btn_activity_search_cancel);
         btnSearch = (Button) findViewById(R.id.btn_activity_search_search);
-        rbAlbum = (RadioButton) findViewById(R.id.rb_activity_find_album);
-        rbArtistOrBand = (RadioButton) findViewById((R.id.rb_activity_search_artist_or_band));
-        rbTopArtists = (RadioButton) findViewById(R.id.rb_activity_search_top_artist);
         radioGroup = (RadioGroup) findViewById(R.id.rg_activity_search);
         etTarget = (EditText) findViewById(R.id.et_activity_search);
 
@@ -71,13 +63,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                             Snackbar.make(mainView, R.string.choose_thing_which_you_want_search, Snackbar.LENGTH_LONG).show();
                             break;
                         case SELECTED_RADIO_ALBUM:
-                            startActivitySearch(SearchedAlbumsActivity.class, nameForSearch);
+                            startActivitySearch(SearchedAlbumsActivity.class, SearchedAlbumsActivity.ALBUM_NAME, nameForSearch);
                             break;
                         case SELECTED_RADIO_ARTIST:
-                            startActivitySearch(SearchedArtistsActivity.class, nameForSearch);
+                            startActivitySearch(SearchedArtistsActivity.class, SearchedArtistsActivity.ARTIST_NAME, nameForSearch);
                             break;
-                        case SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY:
-                            startActivitySearch(SearchedTopArtistsActivity.class, nameForSearch);
                     }
                 } else {
                     DebugUtils.i(this, "error");
@@ -89,9 +79,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    public void startActivitySearch(Class c, String nameForSearch) {
+    public void startActivitySearch(Class c, String key, String nameForSearch) {
         Intent intent = new Intent(this, c);
-        intent.putExtra(NAME_FOR_SEARCH, nameForSearch);
+        intent.putExtra(key, nameForSearch);
         startActivity(intent);
     }
 
@@ -101,8 +91,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 return SELECTED_RADIO_ALBUM;
             case (R.id.rb_activity_search_artist_or_band):
                 return SELECTED_RADIO_ARTIST;
-            case (R.id.rb_activity_search_top_artist):
-                return SELECTED_RADIO_TOP_ARTIST_FROM_COUNRTY;
             default:
                 return SELECTED_RADIO_NONE;
         }

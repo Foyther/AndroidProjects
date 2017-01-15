@@ -19,6 +19,9 @@ import com.zolotuhinartem.lastfminfo.async.SearchArtistAsyncTaskFragment;
 import com.zolotuhinartem.lastfminfo.recyclerviewelements.adapters.ArtistItemAdapter;
 
 public class SearchedArtistsActivity extends AppCompatActivity implements ArtistItemAdapter.OnArtistItemClickListener, SearchArtistAsyncTaskFragment.SearchArtistCallback {
+
+    public static final String ARTIST_NAME = "artist_name";
+
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private ImageView imageView;
@@ -45,7 +48,7 @@ public class SearchedArtistsActivity extends AppCompatActivity implements Artist
         fragment = getFragment();
 
         if (savedInstanceState == null) {
-            fragment.execute(getIntent().getStringExtra(SearchActivity.NAME_FOR_SEARCH));
+            fragment.execute(getIntent().getStringExtra(ARTIST_NAME));
         } else {
             SearchedArtistsHolderFragment fragment = getFragmentHolder();
             adapter.setList(fragment.getArtists());
