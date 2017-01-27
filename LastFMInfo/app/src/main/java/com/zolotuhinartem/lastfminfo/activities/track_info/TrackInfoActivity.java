@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.TrackInfoResponse;
@@ -49,16 +50,17 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
         ivCover = (ImageView) findViewById(R.id.iv_activity_track_info_cover);
 
         TrackInfoAsyncTaskFragment asyncTaskFragment = getTrackInfoAsyncTaskFragment();
-        setProgress(asyncTaskFragment.isWorking());
+
 
         if (savedInstanceState == null) {
             String trackName = getIntent().getStringExtra(TRACK_NAME);
             String artistName = getIntent().getStringExtra(ARTIST_NAME);
-            getTrackInfoAsyncTaskFragment().execute(trackName, artistName);
+            asyncTaskFragment.execute(trackName, artistName);
         } else {
             load();
         }
 
+        setProgress(asyncTaskFragment.isWorking());
     }
 
     @Override
@@ -155,17 +157,23 @@ public class TrackInfoActivity extends AppCompatActivity implements TrackInfoAsy
             progressBar.setVisibility(View.GONE);
         }
     }
+    public void showToast(int id) {
+        Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void onTrackInfoCallback(TrackInfoResponse trackInfoResponse) {
+        setProgress(false);
         if (trackInfoResponse != null) {
-            setProgress(false);
             Track track = trackInfoResponse.getTrack();
             if (track != null) {
                 this.track = track;
                 save();
                 updateViews(track);
             }
-        } else this.finish();
+        } else {
+            this.showToast(R.string.search_error);
+            this.finish();
+        }
     }
 }

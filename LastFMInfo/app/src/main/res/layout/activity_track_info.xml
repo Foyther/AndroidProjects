@@ -8,6 +8,7 @@
     tools:context="com.zolotuhinartem.lastfminfo.activities.album_info.AlbumInfoActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/abl_activity_track_info"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:background="@color/colorBackground"
@@ -39,11 +40,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ProgressBar
-            android:id="@+id/pb_activity_track_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
 
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/nsv_activity_track_info"
@@ -105,5 +101,14 @@
 
 
     </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pb_activity_track_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/abl_activity_track_info"
+        app:layout_anchorGravity="center"
+        android:layout_centerInParent="true" />
 </android.support.design.widget.CoordinatorLayout>
 

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.zolotuhinartem.lastfminfo.LastFmApi.response.TopTracksResponse;
@@ -21,6 +23,7 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
     private RecyclerView rvTopTracks;
     private TopTracksAdapter adapter;
     private Tracks tracks;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +31,33 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
         setContentView(R.layout.activity_top_tracks);
         this.getTopTracksHolderFragment();
 
+        progressBar = (ProgressBar) findViewById(R.id.pb_tracks);
+
         Intent intent = getIntent();
         adapter = new TopTracksAdapter(this);
         rvTopTracks = (RecyclerView) findViewById(R.id.rv_tracks);
         rvTopTracks.setLayoutManager(new LinearLayoutManager(rvTopTracks.getContext()));
 
+        TopTracksAsyncTaskFragment topTracksAsyncTaskFragment = getTopTracksAsyncTaskFragment();
+
+
         if (savedInstanceState == null) {
-            getTopTracksAsyncTaskFragment().execute();
+            topTracksAsyncTaskFragment.execute();
         } else {
             load();
         }
 
+        updProgressBar(topTracksAsyncTaskFragment.isWorking());
+    }
+
+    public void updProgressBar(boolean bln){
+        if(bln){
+            progressBar.setVisibility(View.VISIBLE);
+
+        } else {
+            progressBar.setVisibility(View.GONE);
+
+        }
 
     }
 
@@ -52,16 +71,23 @@ public class TopTracksActivity extends AppCompatActivity implements TopTracksAsy
 
     @Override
     public void onTopTracksCallback(TopTracksResponse topTracksResponse) {
+        updProgressBar(false);
         if (topTracksResponse != null) {
             tracks = topTracksResponse.getTracks();
             adapter.setTopTracks(tracks.getTrack());
             rvTopTracks.setAdapter(adapter);
-        } else {this.finish();
+        } else {
+            this.showToast(R.string.search_error);
+            this.finish();
         }
     }
 
     public void showToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showToast(int id) {
+        Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
     }
 
     @Override
